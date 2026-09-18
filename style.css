@@ -54,6 +54,43 @@ body {
   gap: 16px;
 }
 
+/* ページ見出し */
+.page-header {
+  text-align: center;
+  padding: 8px 0 0;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: var(--fz-xl);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: .04em;
+}
+
+/* 部の見出し（第Ⅰ部／第Ⅱ部／第Ⅲ部） */
+.part {
+  margin: 12px 0 0;
+  font-size: var(--fz-lg);
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: .8em;
+}
+
+.part::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.part:first-of-type {
+  margin-top: 0;
+}
+
 /* 各アイテム（カード） */
 .item {
   background: var(--card);
@@ -112,11 +149,25 @@ body {
   margin-bottom: .8em;
 }
 
+/* 楽章・曲目の内訳 */
+.song .movements {
+  font-size: var(--fz-md);
+  margin: -.1em 0 .3em;
+  line-height: 1.7;
+}
+
 /* 解説本文 */
 .song .detail {
   font-size: var(--fz-md);
   text-wrap: pretty;
   hanging-punctuation: first allow-end; /* 対応ブラウザで読点のぶら下げ */
+}
+
+/* 差し替え待ちのサンプル文（原稿が届いたら sample クラスを外す） */
+.sample {
+  border-left: 3px dashed var(--accent);
+  padding-left: .7em;
+  opacity: .85;
 }
 
 /* カード間の区切り（視覚的な余白強化） */
@@ -151,5 +202,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
     border-radius: 8px;
     border: 1px solid var(--border);
     page-break-inside: avoid;
+  }
+  .part {
+    page-break-after: avoid;
   }
 }
